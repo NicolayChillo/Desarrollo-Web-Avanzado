@@ -84,9 +84,9 @@ export const calcularCuotaSeguro = async (req, res) => {
 
     const resultado = seguro.calcularCuota();
     res.json({
-      id: cliente.id,
-      nombre: cliente.nombre,
-      montoAceptado: cliente.montoAceptado,
+      id: seguro.id,
+      nombre: seguro.nombre,
+      montoAceptado: seguro.montoAceptado,
       ...resultado,
     });
   } catch (error) {
