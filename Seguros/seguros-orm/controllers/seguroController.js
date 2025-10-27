@@ -9,6 +9,11 @@ export const crearSeguro = async (req, res) => {
       return res.status(400).json({ error: "Faltan datos" });
     }
 
+    const monto = Number(montoFinanciado);
+    if (isNaN(monto) || monto < 0) {
+      return res.status(400).json({ message: "Monto invalido (numero negativo)" });
+    }
+    
     const nuevoSeguro = await Seguro.create({ nombre, montoAceptado });
 
     res.status(201).json(nuevoSeguro);
